@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>★ MI SITIO WEB Y2K ★ VINO & CREMA</title>
+  
+  <!-- Font Awesome Icons para los botones del Tamagotchi -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tipografías Retro estilo Pixel & Arcade desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       1. PALETA DE COLORES DEFINITIVA (COLOR VINO & AMARILLO CLARO / CREMA)
+       ========================================================================== */
+    :root {
+      /* Tonalidades Vino / Burdeos */
+      --vino-oscuro: #38080f;
+      --vino-profundo: #540d18;
+      --vino-medio: #7a1c2a;
+      --vino-suave: #9c2e3f;
+      --vino-borde: #63121f;
+      
+      /* Tonalidades Amarillo Claro / Crema Pastel */
+      --crema-base: #fffef2;
+      --crema-suave: #fffad6;
+      --crema-amarillito: #faf0c2;
+      --crema-oscuro: #f3e5ab;
+      
+      /* Neutrales y Acentos */
+      --blanco: #ffffff;
+      --fondo-body: #240409;
+      --texto-oscuro: #38080f;
+      --texto-crema: #fffad6;
+      
+      /* Fuentes Retro */
+      --font-pixel: 'Silkscreen', monospace;
+      --font-arcade: 'Press Start 2P', monospace;
+      --font-body: 'VT323', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      cursor: default;
+    }
+
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--vino-oscuro);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--crema-amarillito);
+      border-radius: 4px;
+    }
+
+    body {
+      margin: 0;
+      padding: 25px 12px;
+      background-color: var(--fondo-body);
+      background-image: 
+        radial-gradient(rgba(255, 250, 214, 0.25) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(243, 229, 171, 0.18) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(122, 28, 42, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(122, 28, 42, 0.3) 1px, transparent 1px);
+      background-size: 35px 35px, 18px 18px, 28px 28px, 28px 28px;
+      background-position: 0 0, 9px 9px, 0 0, 0 0;
+      font-family: var(--font-body);
+      font-size: 19px;
+      color: var(--texto-oscuro);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--vino-medio);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    a:hover {
+      color: var(--vino-suave);
+      text-shadow: 0 0 4px var(--crema-suave);
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      background: rgba(255, 254, 242, 0.96);
+      backdrop-filter: blur(6px);
+      border: 3px solid var(--vino-medio);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 
+        0 0 20px rgba(84, 13, 24, 0.4),
+        6px 6px 0px var(--crema-amarillito), 
+        12px 12px 0px var(--vino-profundo);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       2. ELEMENTOS DECORATIVOS: ESTRELLAS
+       ========================================================================== */
+    .star-sparkle {
+      position: absolute;
+      pointer-events: none;
+      animation: floatStar 3s ease-in-out infinite alternate;
+      z-index: 10;
+      font-size: 18px;
+      color: var(--crema-amarillito);
+      filter: drop-shadow(0 0 3px var(--vino-medio));
+    }
+
+    @keyframes floatStar {
+      0% { transform: translateY(0px) rotate(0deg) scale(0.9); opacity: 0.7; }
+      100% { transform: translateY(-8px) rotate(18deg) scale(1.15); opacity: 1; }
+    }
+
+    .twinkle {
+      display: inline-block;
+      animation: pulseTwinkle 1.6s infinite alternate;
+      color: var(--vino-suave);
+    }
+
+    @keyframes pulseTwinkle {
+      from { opacity: 0.4; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1.15) rotate(12deg); }
+    }
+
+    .star-divider {
+      text-align: center;
+      margin: 22px 0;
+      color: var(--vino-medio);
+      font-size: 13px;
+      letter-spacing: 5px;
+    }
+
+    /* ==========================================================================
+       3. ENCABEZADO Y REDES
+       ========================================================================== */
+    .header {
+      text-align: center;
+      margin-bottom: 22px;
+      position: relative;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--crema-suave), var(--crema-amarillito), var(--crema-oscuro));
+      border: 2px dashed var(--vino-medio);
+      border-radius: 12px;
+    }
+
+    .logo-title {
+      font-family: var(--font-arcade);
+      font-size: 28px;
+      color: var(--vino-profundo);
+      text-shadow: 2px 2px 0px var(--crema-amarillito), -1px -1px 0px var(--vino-suave);
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-family: var(--font-pixel);
+      font-size: 11px;
+      color: var(--vino-medio);
+      margin-top: -3px;
+      margin-bottom: 14px;
+      font-weight: bold;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-social {
+      font-family: var(--font-pixel);
+      font-size: 10px;
+      padding: 6px 12px;
+      background-color: var(--crema-base);
+      border: 2px solid var(--vino-medio);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--vino-profundo);
+      box-shadow: 2px 2px 0px var(--crema-oscuro);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-social:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px var(--vino-medio);
+      background-color: var(--vino-profundo);
+      color: var(--crema-suave);
+    }
+
+    /* ==========================================================================
+       4. DISTRIBUCIÓN PRINCIPAL & ARRASTRE
+       ========================================================================== */
+    .top-layout {
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .bottom-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 820px) {
+      .top-layout, .bottom-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .box-container {
+      background: var(--crema-base);
+      border: 2px solid var(--vino-medio);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 3px 3px 0px var(--crema-amarillito);
+      margin-bottom: 18px;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    }
+
+    /* Efectos visuales de arrastre */
+    .box-container.dragging {
+      opacity: 0.4;
+      transform: scale(0.98);
+      border: 2px dashed var(--vino-suave);
+    }
+
+    .drag-column {
+      min-height: 80px;
+      padding-bottom: 10px;
+    }
+
+    .box-title {
+      font-size: 12px;
+      background: var(--crema-amarillito);
+      color: var(--vino-profundo);
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px dotted var(--vino-medio);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-pixel);
+      user-select: none;
+    }
+
+    .box-container[draggable="true"] .box-title {
+      cursor: grab;
+    }
+
+    .box-container[draggable="true"] .box-title:active {
+      cursor: grabbing;
+    }
+
+    .drag-handle {
+      font-size: 10px;
+      opacity: 0.7;
+      margin-left: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* ==========================================================================
+       5. SECCIÓN CENTRAL: BLOG / JOURNAL + COMENTARIOS
+       ========================================================================== */
+    .journal-post {
+      background: var(--crema-base);
+      border: 2px solid var(--vino-medio);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 3px 3px 0px rgba(84, 13, 24, 0.1);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-pixel);
+      font-size: 11px;
+      color: var(--vino-profundo);
+      border-bottom: 2px dotted var(--vino-suave);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .post-title {
+      font-weight: bold;
+      color: var(--vino-profundo);
+    }
+
+    .post-date {
+      color: var(--vino-suave);
+      font-size: 10px;
+    }
+
+    .post-body {
+      font-size: 18px;
+      line-height: 1.4;
+      color: var(--texto-oscuro);
+      margin-bottom: 16px;
+    }
+
+    .comments-section {
+      background: var(--crema-suave);
+      border: 1px dashed var(--vino-medio);
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 14px;
+    }
+
+    .comments-title {
+      font-family: var(--font-pixel);
+      font-size: 10px;
+      color: var(--vino-profundo);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .comment-item {
+      background: var(--crema-base);
+      border: 1px solid var(--crema-oscuro);
+      border-left: 3px solid var(--vino-suave);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .comment-author {
+      font-family: var(--font-pixel);
+      font-size: 9px;
+      color: var(--vino-medio);
+      margin-bottom: 3px;
+    }
+
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .comment-input-name {
+      font-family: var(--font-pixel);
+      font-size: 10px;
+      padding: 6px 8px;
+      border: 1px solid var(--vino-medio);
+      border-radius: 4px;
+      background: var(--crema-base);
+      color: var(--texto-oscuro);
+    }
+
+    .comment-textarea {
+      font-family: var(--font-body);
+      font-size: 17px;
+      padding: 6px 8px;
+      border: 1px solid var(--vino-medio);
+      border-radius: 4px;
+      background: var(--crema-base);
+      color: var(--texto-oscuro);
+      height: 55px;
+      resize: vertical;
+    }
+
+    .btn-comment {
+      align-self: flex-end;
+      font-family: var(--font-pixel);
+      font-size: 9px;
+      background: var(--vino-medio);
+      color: var(--crema-suave);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--crema-oscuro);
+      transition: all 0.15s;
+    }
+
+    .btn-comment:hover {
+      background: var(--vino-profundo);
+      transform: translateY(-1px);
+    }
+
+    .btn-comment:disabled {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
+    }
+
+    .comment-date {
+      font-family: var(--font-pixel);
+      font-size: 8px;
+      color: var(--vino-suave);
+      margin-left: 6px;
+      font-weight: normal;
+    }
+
+    .comment-text {
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.2;
+    }
+
+    .comment-status {
+      font-family: var(--font-pixel);
+      font-size: 9px;
+      color: var(--vino-medio);
+      padding: 6px 2px;
+    }
+
+    .comment-hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    /* ==========================================================================
+       6. WIDGETS LATERALES: TAMAGOTCHI + REPRODUCTOR
+       ========================================================================== */
+       
+    .tamagotchi-shell {
+      background: radial-gradient(circle, #9c2e3f 0%, #7a1c2a 60%, #38080f 100%);
+      box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.3), inset 0 -4px 8px rgba(0, 0, 0, 0.4);
+      border: 3px solid var(--crema-amarillito);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .lcd-screen {
+      background: #8b956d; 
+      color: #1b2a06;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 2px inset var(--vino-oscuro);
+      padding: 8px;
+    }
+
+    .lcd-screen::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      z-index: 10;
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .animate-pet-bounce {
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-fast {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .animate-pulse-fast {
+      animation: pulse-fast 0.6s infinite;
+    }
+
+    .stat-bar-container-new {
+      margin-bottom: 4px;
+      font-family: var(--font-pixel);
+      font-size: 8px;
+      color: #1b2a06;
+      z-index: 20;
+      position: relative;
+    }
+
+    .stat-bar-bg {
+      width: 100%;
+      background: rgba(27, 42, 6, 0.2);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid rgba(27, 42, 6, 0.4);
+      margin-top: 2px;
+    }
+
+    .stat-bar-fill {
+      height: 100%;
+      background: #1b2a06;
+      width: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .tamagotchi-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .btn-tamagotchi-action {
+      font-family: var(--font-pixel);
+      font-size: 8px;
+      padding: 6px 4px;
+      background: var(--crema-amarillito);
+      color: var(--vino-profundo);
+      border: 1px solid var(--vino-medio);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 2px 2px 0px var(--vino-oscuro);
+      transition: all 0.1s;
+      text-align: center;
+    }
+
+    .btn-tamagotchi-action:hover {
+      background: var(--crema-suave);
+      transform: translate(-1px, -1px);
+    }
+    .btn-tamagotchi-action:active {
+      transform: translate(1px, 1px);
+      box-shadow: none;
+    }
+
+    /* Reproductor de Música */
+    .music-player {
+      background: var(--vino-profundo);
+      color: var(--crema-suave);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: var(--font-pixel);
+      font-size: 10px;
+      border: 1px solid var(--crema-amarillito);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .player-display {
+      background: var(--vino-oscuro);
+      padding: 6px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      color: var(--crema-suave);
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 9px;
+      border: 1px solid rgba(250, 240, 194, 0.2);
+    }
+
+    .album-title-display {
+      text-align: center;
+      font-size: 9px;
+      color: var(--crema-amarillito);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+      background: rgba(0,0,0,0.25);
+      padding: 4px;
+      border-radius: 4px;
+      border: 1px dashed var(--vino-suave);
+    }
+
+    /* CD VISUALIZER EN 4 CUARTOS SUAVES CON SATURACIÓN EQUILIBRADA */
+    .cd-visualizer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0 14px 0;
+    }
+
+    .cd-disc {
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(255, 255, 255, 0.8);
+      background:
+        radial-gradient(circle, 
+          transparent 0%, 
+          transparent 12%, 
+          #111 12.5%, 
+          #111 13.5%, 
+          transparent 14%, 
+          transparent 26%, 
+          rgba(255,255,255,0.3) 26.5%, 
+          transparent 27%
+        ),
+        conic-gradient(from 0deg, 
+          #e295a0 0deg, 
+          #e2a862 25deg, 
+          #f0d880 50deg, 
+          #8cc492 75deg, 
+          #7dbbc3 95deg, 
+          #a8b8c8 120deg, 
+          #c0c0c0 145deg, 
+          #909eb0 165deg, 
+          #e295a0 180deg, 
+          #e2a862 205deg, 
+          #f0d880 230deg, 
+          #8cc492 255deg, 
+          #7dbbc3 275deg, 
+          #a8b8c8 300deg, 
+          #c0c0c0 325deg, 
+          #909eb0 345deg,
+          #e295a0 360deg
+        );
+      will-change: transform;
+    }
+
+    /* Brillo superior holográfico reflectante */
+    .cd-disc::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, 
+        transparent 30%, 
+        rgba(255,255,255,0.4) 35%, 
+        transparent 50%, 
+        rgba(255,255,255,0.18) 65%, 
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    /* Anillo transparente e interior metálico */
+    .cd-center-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cd-inner-ring {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(220, 220, 220, 0.5);
+      border: 1px solid rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cd-hole {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--fondo-body);
+      border: 1px solid rgba(0,0,0,0.4);
+      box-shadow: inset 0 0 3px rgba(0,0,0,0.8);
+    }
+
+    .player-controls {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .player-btn {
+      font-family: var(--font-pixel);
+      font-size: 10px;
+      background: var(--crema-amarillito);
+      color: var(--vino-profundo);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 2px 2px 0px var(--vino-oscuro);
+      transition: all 0.1s;
+    }
+
+    .player-btn:hover {
+      background: var(--crema-suave);
+      transform: translateY(-1px);
+    }
+    .player-btn:active {
+      transform: translateY(1px);
+      box-shadow: none;
+    }
+
+    .track-list-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+      border-top: 1px dashed var(--crema-oscuro);
+      padding-top: 8px;
+    }
+
+    /* ESTILOS DE LOS BOTONES DE CANCIONES DEBAJO DEL CD */
+    .btn-track {
+      font-family: var(--font-pixel);
+      font-size: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--crema-suave);
+      border: 1px solid var(--crema-amarillito);
+      padding: 6px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-track:hover {
+      background: var(--crema-amarillito);
+      color: var(--vino-profundo);
+      font-weight: bold;
+    }
+
+    /* TEMA CLARO PARA LOS TRACKS (CREMA O PLATA) */
+    .music-player.theme-light .btn-track {
+      background: rgba(56, 8, 15, 0.08);
+      color: var(--vino-profundo);
+      border: 1px solid var(--vino-medio);
+      font-weight: bold;
+    }
+
+    .music-player.theme-light .btn-track:hover {
+      background: var(--vino-profundo);
+      color: var(--crema-suave);
+    }
+
+    /* ==========================================================================
+       7. SECCIÓN INFERIOR: WEBRINGS & INTERESES
+       ========================================================================== */
+    .buttons-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding: 10px;
+      border: 1px inset var(--crema-oscuro);
+      background: var(--crema-suave);
+      border-radius: 6px;
+    }
+
+    .button-88x31 {
+      width: 88px;
+      height: 31px;
+      background: linear-gradient(135deg, var(--crema-amarillito), var(--crema-suave));
+      border: 1px solid var(--vino-medio);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-pixel);
+      font-size: 8px;
+      text-align: center;
+      color: var(--vino-profundo);
+      text-decoration: none;
+      box-shadow: 2px 2px 0px var(--vino-suave);
+      font-weight: bold;
+    }
+
+    .button-88x31:hover {
+      background: var(--vino-profundo);
+      color: var(--crema-suave);
+    }
+
+    .list-interests {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list-interests li {
+      padding: 6px 0;
+      border-bottom: 1px dotted var(--crema-oscuro);
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ESTRELLAS DECORATIVAS FLOTANTES -->
+  <div class="star-sparkle" style="top: 15px; left: 3%;">★</div>
+  <div class="star-sparkle" style="top: 35px; right: 4%; animation-delay: 1s;">✦</div>
+  <div class="star-sparkle" style="bottom: 30px; left: 2%; animation-delay: 1.5s;">✨</div>
+  <div class="star-sparkle" style="bottom: 45px; right: 3%; animation-delay: 0.5s;">🟄</div>
+
+  <div class="container">
+
+    <!-- ENCABEZADO / HEADER -->
+    <header class="header">
+      <div class="logo-title">
+        <span class="twinkle">★</span> IRENE's <span class="twinkle">☆</span> WEBSITE
+      </div>
+      <div class="subtitle">✦ My personal little cyberspace <3 ✦</div>
+
+      <div class="social-links">
+        <a href="#" class="btn-social"><span>✨</span> Animation</a>
+        <a href="#" class="btn-social"><span>✦</span> Music</a>
+        <a href="#" class="btn-social"><span>★</span> DigitalFreedom</a>
+        <a href="#" class="btn-social"><span>🟄</span> Books</a>
+        <a href="#" class="btn-social"><span>✨</span> Opinions</a>
+      </div>
+    </header>
+
+    <div class="star-divider">✦ ★ ✦ -------------------- ✦ ★ ✦</div>
+
+    <!-- LAYOUT SUPERIOR: CENTRAL (DIARIO) + DERECHA (WIDGETS) -->
+    <div class="top-layout">
+
+      <!-- COLUMNA CENTRAL PRINCIPAL: BLOG / BITÁCORA (SE GENERA AUTOMÁTICAMENTE) -->
+      <main id="main-column">
+        <div class="box-container" draggable="false">
+          <div class="box-title" style="cursor: default;">
+            <span>📝 Diaries of a person with a new found will to write and share thoughts</span>
+            <span>★</span>
+          </div>
+
+          <!-- CONTENEDOR DINÁMICO DE LAS ENTRADAS DE BLOG -->
+          <div id="blog-posts-container"></div>
+
+        </div>
+      </main>
+
+      <!-- BARRA LATERAL DERECHA (COLUMNA DE BLOQUES LIBRES) -->
+      <aside class="drag-column" id="side-column">
+        
+        <!-- Sobre Mí -->
+        <div class="box-container" draggable="true">
+          <div class="box-title">
+            <span>★ About me</span>
+            <div>
+              <span>✦</span>
+              <span class="drag-handle" title="Arrastrar para mover">:::</span>
+            </div>
+          </div>
+          <p style="font-size: 16px; margin: 0; line-height: 1.35;">
+            ¡Hola! My name is Irene (lawebdeirene literally means Irene's website xD). I have never quite liked social media cause I always felt boxed by the algorithm and the lack of customization of the apps. My Archimedes' heel always have been Youtube. And I finally bought a dumb phone so I needed a new hobbie to fill all those hours I usually spend watching Youtube. And here I am.╰(*°▽°*)╯
+          </p>
+          <p>
+          Feel free to move the "boxes" (The Tamagotchi, the music player...) however you like. The only unmovable thing are my entries "box" and space. Make the website a bit yours. 
+          </p>
+        </div>
+
+        <!-- Mascota Virtual (Tamagotchi Avanzado con Power ON/OFF) -->
+        <div class="box-container" draggable="true">
+          <div class="box-title">
+            <span>👾 BICHITO</span>
+            <div style="display: flex; gap: 4px; align-items: center;">
+              <button onclick="togglePower()" id="power-btn" style="font-family:var(--font-pixel); font-size:8px; background:#4cd137; color:#1b2a06; border:none; padding:2px 5px; border-radius:3px; cursor:pointer; font-weight:bold;" title="Encender / Apagar Tamagotchi">⚡ ON</button>
+              <button onclick="toggleSound()" id="sound-btn" style="font-family:var(--font-pixel); font-size:8px; background:var(--crema-amarillito); color:var(--vino-profundo); border:none; padding:2px 4px; border-radius:3px; cursor:pointer;" title="Alternar Sonido">🔊</button>
+              <button onclick="resetPet()" style="font-family:var(--font-pixel); font-size:8px; background:var(--vino-medio); color:var(--crema-suave); border:none; padding:2px 5px; border-radius:4px; cursor:pointer;">reset</button>
+              <span class="drag-handle" title="Arrastrar para mover">:::</span>
+            </div>
+          </div>
+          
+          <div class="tamagotchi-shell">
+            
+            <div class="lcd-screen" id="tamagotchi-screen">
+              
+              <div class="stat-bar-container-new" id="stat-hunger-wrap">
+                <div style="display: flex; justify-content: space-between;">
+                  <span><i class="fa-solid fa-utensils"></i> HUNGER</span>
+                  <span id="text-hunger">80%</span>
+                </div>
+                <div class="stat-bar-bg"><div id="bar-hunger" class="stat-bar-fill" style="width: 80%;"></div></div>
+              </div>
+
+              <div class="stat-bar-container-new" id="stat-happy-wrap">
+                <div style="display: flex; justify-content: space-between;">
+                  <span><i class="fa-solid fa-heart"></i> MOOD</span>
+                  <span id="text-happy">75%</span>
+                </div>
+                <div class="stat-bar-bg"><div id="bar-happy" class="stat-bar-fill" style="width: 75%;"></div></div>
+              </div>
+
+              <div class="stat-bar-container-new" id="stat-energy-wrap">
+                <div style="display: flex; justify-content: space-between;">
+                  <span><i class="fa-solid fa-bolt"></i> ENERGY</span>
+                  <span id="text-energy">90%</span>
+                </div>
+                <div class="stat-bar-bg"><div id="bar-energy" class="stat-bar-fill" style="width: 90%;"></div></div>
+              </div>
+
+              <div style="text-align: center; padding: 10px 0; z-index: 20; position: relative;">
+                <div id="pet-face" class="animate-pet-bounce" style="font-family: monospace; font-weight: bold; font-size: 32px; color: #1b2a06; letter-spacing: 2px;">
+                  (•_•)
+                </div>
+              </div>
+
+              <div style="border-top: 1px dashed rgba(27,42,6,0.3); pt-2; text-align: center; z-index: 20; position: relative;">
+                <p id="pet-status" style="font-family: var(--font-pixel); font-size: 8px; margin: 2px 0 0 0; color: #1b2a06; font-weight: bold;">
+                  Chilling...
+                </p>
+              </div>
+
+            </div>
+
+            <div class="tamagotchi-actions" id="tamagotchi-buttons">
+              <button class="btn-tamagotchi-action" onclick="feedPet()">[ Feed ]</button>
+              <button class="btn-tamagotchi-action" onclick="petPet()">[ Pamper ]</button>
+              <button class="btn-tamagotchi-action" onclick="playPet()">[ Play ]</button>
+              <button class="btn-tamagotchi-action" onclick="sleepPet()">[ Sleep ]</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Reproductor de Música con Visualizador de CD -->
+        <div class="box-container" draggable="true">
+          <div class="box-title">
+            <span>♫ Stellar player</span>
+            <div>
+              <span>✨</span>
+              <span class="drag-handle" title="Arrastrar para mover">:::</span>
+            </div>
+          </div>
+          <div class="music-player" id="music-player-box">
+            
+            <div class="player-display" id="player-status">
+              ▶ Click on a track to play
+            </div>
+
+            <div class="album-title-display" id="album-title-display">
+              <!-- Carga dinámicamente -->
+            </div>
+
+            <!-- VISUALIZADOR DE CD CON ROTACIÓN PRECISA Y REANUDABLE -->
+            <div class="cd-visualizer-container">
+              <div class="cd-disc" id="cd-disc" style="transform: rotate(0deg);">
+                <div class="cd-center-ring">
+                  <div class="cd-inner-ring">
+                    <div class="cd-hole"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTROLES PRINCIPALES: ALBUM ANTERIOR, PLAY, PAUSA, ALBUM SIGUIENTE -->
+            <div class="player-controls">
+              <button class="player-btn" onclick="prevAlbum()" title="Álbum Anterior">«</button>
+              <button class="player-btn" onclick="resumeYouTubeSong()" title="Play">▶</button>
+              <button class="player-btn" onclick="stopYouTubeSong()" title="Pausa">⏸</button>
+              <button class="player-btn" onclick="nextAlbum()" title="Próximo Álbum">»</button>
+            </div>
+
+            <!-- LISTA DINÁMICA DE TRACKS DEL ÁLBUM SELECCIONADO (DEBAJO DEL CD) -->
+            <div class="track-list-controls" id="track-list-container">
+              <!-- Se genera dinámicamente mediante JS -->
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 6px; font-size: 8px;" id="player-footer-div">
+              <span>PLAYER STYLE:</span>
+              <div style="display: flex; gap: 3px;">
+                <button onclick="setPlayerStyle('vino')" style="background:var(--vino-profundo); border:1px solid var(--crema-amarillito); width:12px; height:12px; border-radius:50%; cursor:pointer;" title="Vino"></button>
+                <button onclick="setPlayerStyle('crema')" style="background:var(--crema-amarillito); border:1px solid var(--vino-medio); width:12px; height:12px; border-radius:50%; cursor:pointer;" title="Crema"></button>
+                <button onclick="setPlayerStyle('silver')" style="background:#dcdde1; border:1px solid #333; width:12px; height:12px; border-radius:50%; cursor:pointer;" title="Plata"></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Elemento oculto donde la API de YouTube carga el audio -->
+        <div id="youtube-audio-container" style="display:none;"></div>
+
+      </aside>
+
+    </div>
+
+    <div class="star-divider">✦ ★ ✦ -------------------- ✦ ★ ✦</div>
+
+    <!-- LAYOUT INFERIOR (DOS COLUMNAS TOTALMENTE ARRASTRABLES ENTRE SÍ) -->
+    <div class="bottom-layout">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="drag-column" id="bottom-left-column">
+        <div class="box-container" style="margin-bottom:0;" draggable="true">
+          <div class="box-title">
+            <span>★ Know more about me</span>
+            <div>
+              <span>✦</span>
+              <span class="drag-handle" title="Arrastrar para mover">:::</span>
+            </div>
+          </div>
+          <ul class="list-interests">
+            <li><span>🍷</span> I don't like the extreme polarization of our society nowadays. But I LOVE debating.</li>
+            <li><span>🎧</span> Music might as well be my addiction. I legit cannot live without it.♪♪♪♪ </li>
+            <li><span>👾</span> I'm a 3D Generalist artist. I studied Game Design and worked at a TV Late Night Show.</li>
+            <li><span>📖</span> I always have love reading but the past year with college and a full-time job I didn't found the energy.</li>
+            <li><span>✨</span>Random things I'm a fan of: Ninja Turtles, Tomorrow by Together, Castle, Contrapoints...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="drag-column" id="bottom-right-column">
+        <div class="box-container" style="margin-bottom:0;" draggable="true">
+          <div class="box-title">
+            <span>🟄 Visit my cool internet neighbors</span>
+            <span class="drag-handle" title="Arrastrar para mover">:::</span>
+          </div>
+
+          <div class="buttons-grid">
+            <a href="https://arunyi.art/#about" class="button-88x31">Arunyi</a>
+            <a href="https://dokode.moe/indexv3" class="button-88x31">Dokode.Moe</a>
+            
+            <p>
+            Btw according to Dokode I'm a <span><i>⁓ Classical Nerd ⁓</i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer style="text-align: center; font-size: 13px; color: var(--vino-profundo); font-family: var(--font-pixel); margin-top: 25px;">
+      <p>✨ Thank you to neocities for the creation of this indie website universe ✨</p>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT: CONFIGURACIÓN FÁCIL Y FUNCIONES DE LA WEB -->
+  <script>
+    /* ==========================================================================
+       1. SECCIÓN DE CONFIGURACIÓN FÁCIL (¡EDITA AQUÍ TUS CONTENIDOS!)
+       ========================================================================== */
+
+    // 💬 COMENTARIOS COMPARTIDOS (Supabase) — rellena estos 2 valores (ver instrucciones):
+    const SUPABASE_URL = "https://ynexmgloqfzjdqsugsud.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_Z3rgrK_w4dpElp3reZIlHQ_9BUxJfiM";
+
+    // 📝 TUS ENTRADAS DE LA BITÁCORA / BLOG:
+    const MIS_ENTRADAS_BLOG = [
+      {
+        id: "post-1",
+        titulo: "✧ The day",
+        fecha: "2026-10-23",
+        contenido: `<p>Hi! I'm new here. This is the birth of this website🥳 </p>`
+      },
+    ];
+
+    // 🎵 TUS ÁLBUMES Y CANCIONES:
+    const MIS_ALBUMES = [
+      {
+        nombre: "CD ALBUM 1/2: TOMORROW X TOGETHER",
+        tracks: [
+          { titulo: "41 Winks", id: "Fko9EEEU6gk" },
+          { titulo: "Deja Vu", id: "WlLBqVP1rlk" },
+          { titulo: "Drama", id: "6Sxpe9WyhhQ" }
+        ]
+      },
+      {
+        nombre: "CD ALBUM 2/2: MIX VARIADO",
+        tracks: [
+          { titulo: "Nicole Kidman - ADÉLA", id: "IXA6bQsVNjs" },
+          { titulo: "My Marmalade - Katia Lel", id: "CtoO-jLSC8o" },
+          { titulo: "Basic Minimum - Mia Boyka", id: "vUrpSWVq_KE" }
+        ]
+      }
+    ];
+
+
+    /* ==========================================================================
+       2. GENERACIÓN AUTOMÁTICA DE LA BITÁCORA EN PANTALLA
+       ========================================================================== */
+    function renderBlogPosts() {
+      const container = document.getElementById('blog-posts-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      MIS_ENTRADAS_BLOG.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'journal-post';
+        article.innerHTML = `
+          <div class="post-header">
+            <span class="post-title">${post.titulo}</span>
+            <span class="post-date">${post.fecha}</span>
+          </div>
+          <div class="post-body">
+            ${post.contenido}
+          </div>
+
+          <div class="comments-section">
+            <div class="comments-title">
+              <span>💬 comentarios</span>
+              <span>✦</span>
+            </div>
+            <div class="comment-list" id="comments-${post.id}">
+              <div class="comment-status">⏳ cargando comentarios...</div>
+            </div>
+
+            <div class="comment-form">
+              <input type="text" id="name-${post.id}" class="comment-input-name" placeholder="★ Name..." maxlength="40">
+              <input type="text" id="hp-${post.id}" class="comment-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <textarea id="text-${post.id}" class="comment-textarea" placeholder="Write your thoughts, they're appreciated..." maxlength="500"></textarea>
+              <button class="btn-comment" id="btn-${post.id}" onclick="addComment('${post.id}')">[ Send Comment ]</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(article);
+      });
+      startCommentSync();
+    }
+
+    /* --------------------------------------------------
+       SISTEMA DE ARRASTRAR Y SOLTAR (DRAG & DROP TOTALMENTE LIBRE)
+       -------------------------------------------------- */
+    let draggedItem = null;
+
+    function initDragAndDrop() {
+      const draggables = document.querySelectorAll('.box-container[draggable="true"]');
+      const columns = document.querySelectorAll('.drag-column');
+
+      draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', (e) => {
+          draggedItem = draggable;
+          setTimeout(() => draggable.classList.add('dragging'), 0);
+        });
+
+        draggable.addEventListener('dragend', () => {
+          draggable.classList.remove('dragging');
+          draggables.forEach(d => d.classList.remove('drag-over'));
+          draggedItem = null;
+        });
+      });
+
+      columns.forEach(column => {
+        column.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          const afterElement = getDragAfterElement(column, e.clientY);
+          const currentDraggable = document.querySelector('.dragging');
+          if (!currentDraggable) return;
+
+          if (afterElement == null) {
+            column.appendChild(currentDraggable);
+          } else {
+            column.insertBefore(currentDraggable, afterElement);
+          }
+        });
+      });
+    }
+
+    function getDragAfterElement(container, y) {
+      const draggableElements = [...container.querySelectorAll('.box-container:not(.dragging)')];
+
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    /* --------------------------------------------------
+       SISTEMA DE COMENTARIOS
+       -------------------------------------------------- */
+    const COMMENTS_CONFIGURED =
+      SUPABASE_URL.startsWith('https://') && !SUPABASE_ANON_KEY.startsWith('PEGA_');
+    const COMMENT_REFRESH_MS = 20000;
+    const COMMENT_COOLDOWN_MS = 15000;
+    let lastCommentSentAt = 0;
+
+    function sbHeaders(extra) {
+      // Las claves nuevas "sb_publishable_..." no son JWT: solo van en 'apikey'
+      const h = { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json' };
+      if (!SUPABASE_ANON_KEY.startsWith('sb_')) h['Authorization'] = 'Bearer ' + SUPABASE_ANON_KEY;
+      return Object.assign(h, extra || {});
+    }
+
+    function formatCommentDate(iso) {
+      const d = new Date(iso);
+      if (isNaN(d)) return '';
+      const pad = n => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    function setCommentStatus(postId, msg) {
+      const list = document.getElementById(`comments-${postId}`);
+      if (list) list.innerHTML = `<div class="comment-status">${escapeHtml(msg)}</div>`;
+    }
+
+    function paintComments(postId, rows) {
+      const list = document.getElementById(`comments-${postId}`);
+      if (!list) return;
+      if (!rows.length) {
+        list.innerHTML = '<div class="comment-status">✦ aún no hay comentarios, ¡sé la primera persona!</div>';
+        return;
+      }
+      list.innerHTML = rows.map(r => `
+        <div class="comment-item">
+          <div class="comment-author">✦ ${escapeHtml(r.author || 'Anónimo_Y2K')}<span class="comment-date">${escapeHtml(formatCommentDate(r.created_at))}</span></div>
+          <div class="comment-text">${escapeHtml(r.body)}</div>
+        </div>`).join('');
+    }
+
+    async function loadComments(postId, silent) {
+      if (!COMMENTS_CONFIGURED) {
+        setCommentStatus(postId, '⚠ comentarios sin configurar (falta URL/clave de Supabase).');
+        return;
+      }
+      try {
+        const url = `${SUPABASE_URL}/rest/v1/comments?select=id,author,body,created_at` +
+                    `&post_id=eq.${encodeURIComponent(postId)}&order=created_at.asc&limit=300`;
+        const res = await fetch(url, { headers: sbHeaders(), cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        paintComments(postId, await res.json());
+      } catch (err) {
+        if (!silent) setCommentStatus(postId, '⚠ no se pudieron cargar los comentarios. Reintentando...');
+      }
+    }
+
+    function startCommentSync() {
+      MIS_ENTRADAS_BLOG.forEach(post => loadComments(post.id, false));
+      if (COMMENTS_CONFIGURED) {
+        setInterval(() => {
+          if (document.hidden) return;
+          // No repintar si alguien está escribiendo, para no molestar
+          if (document.activeElement && /^(TEXTAREA|INPUT)$/.test(document.activeElement.tagName)) return;
+          MIS_ENTRADAS_BLOG.forEach(post => loadComments(post.id, true));
+        }, COMMENT_REFRESH_MS);
+      }
+    }
+
+    async function addComment(postId) {
+      const nameInput = document.getElementById(`name-${postId}`);
+      const textInput = document.getElementById(`text-${postId}`);
+      const hpInput = document.getElementById(`hp-${postId}`);
+      const btn = document.getElementById(`btn-${postId}`);
+
+      if (hpInput && hpInput.value) return; // trampa anti-bots
+
+      const name = nameInput.value.trim().slice(0, 40);
+      const text = textInput.value.trim().slice(0, 500);
+
+      if (!text) {
+        alert('Escribe un comentario antes de enviar.');
+        return;
+      }
+      if (!COMMENTS_CONFIGURED) {
+        alert('Los comentarios aún no están configurados (falta la URL y clave de Supabase).');
+        return;
+      }
+      const wait = COMMENT_COOLDOWN_MS - (Date.now() - lastCommentSentAt);
+      if (wait > 0) {
+        alert(`Espera ${Math.ceil(wait / 1000)} s antes de enviar otro comentario.`);
+        return;
+      }
+
+      const originalLabel = btn.innerText;
+      btn.disabled = true;
+      btn.innerText = '[ Sending... ]';
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/comments`, {
+          method: 'POST',
+          headers: sbHeaders({ 'Prefer': 'return=minimal' }),
+          body: JSON.stringify({ post_id: postId, author: name || 'Anónimo_Y2K', body: text })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        lastCommentSentAt = Date.now();
+        nameInput.value = '';
+        textInput.value = '';
+        await loadComments(postId, false);
+      } catch (err) {
+        alert('No se pudo enviar el comentario. Inténtalo de nuevo en un momento.');
+      } finally {
+        btn.disabled = false;
+        btn.innerText = originalLabel;
+      }
+    }
+
+    function escapeHtml(string) {
+      return String(string).replace(/[&<>"']/g, function (s) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[s];
+      });
+    }
+
+    /* --------------------------------------------------
+       TAMAGOTCHI + AUDIO API + POWER ON/OFF
+       -------------------------------------------------- */
+    let hunger = 80;
+    let happy = 75;
+    let energy = 90;
+    let isAlive = true;
+    let soundEnabled = true;
+    let isPoweredOn = true;
+
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new AudioContext();
+      }
+    }
+
+    function playBeep(freq = 440, type = 'square', duration = 0.1) {
+      if (!soundEnabled || !isPoweredOn) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch(e) {}
+    }
+
+    function playActionSound(action) {
+      if (!soundEnabled || !isPoweredOn) return;
+      initAudio();
+      
+      if (action === 'feed') {
+        playBeep(300, 'square', 0.08);
+        setTimeout(() => playBeep(450, 'square', 0.12), 90);
+      } else if (action === 'pet') {
+        playBeep(523.25, 'sine', 0.1);
+        setTimeout(() => playBeep(659.25, 'sine', 0.15), 100);
+      } else if (action === 'play') {
+        playBeep(400, 'triangle', 0.06);
+        setTimeout(() => playBeep(600, 'triangle', 0.06), 60);
+      } else if (action === 'sleep') {
+        playBeep(350, 'sine', 0.2);
+        setTimeout(() => playBeep(250, 'sine', 0.3), 180);
+      } else if (action === 'dead') {
+        playBeep(200, 'sawtooth', 0.2);
+        setTimeout(() => playBeep(100, 'sawtooth', 0.4), 250);
+      } else if (action === 'reset') {
+        playBeep(500, 'square', 0.08);
+        setTimeout(() => playBeep(700, 'square', 0.1), 80);
+      }
+    }
+
+    function toggleSound() {
+      if (!isPoweredOn) return;
+      soundEnabled = !soundEnabled;
+      const soundBtn = document.getElementById('sound-btn');
+      if (soundEnabled) {
+        soundBtn.innerText = "🔊";
+        playBeep(600, 'sine', 0.1);
+      } else {
+        soundBtn.innerText = "🔇";
+      }
+    }
+
+    function togglePower() {
+      isPoweredOn = !isPoweredOn;
+      const powerBtn = document.getElementById('power-btn');
+      const screen = document.getElementById('tamagotchi-screen');
+      const actionButtons = document.getElementById('tamagotchi-buttons');
+
+      const hungerWrap = document.getElementById('stat-hunger-wrap');
+      const happyWrap = document.getElementById('stat-happy-wrap');
+      const energyWrap = document.getElementById('stat-energy-wrap');
+      const faceEl = document.getElementById('pet-face');
+      const statusEl = document.getElementById('pet-status');
+
+      if (isPoweredOn) {
+        powerBtn.innerText = "⚡ ON";
+        powerBtn.style.background = "#4cd137";
+        powerBtn.style.color = "#1b2a06";
+        screen.style.background = "#8b956d";
+        if (hungerWrap) hungerWrap.style.display = "block";
+        if (happyWrap) happyWrap.style.display = "block";
+        if (energyWrap) energyWrap.style.display = "block";
+        if (actionButtons) actionButtons.style.display = "grid";
+        updatePetDisplay();
+      } else {
+        powerBtn.innerText = "💤 OFF";
+        powerBtn.style.background = "#718093";
+        powerBtn.style.color = "#fff";
+        screen.style.background = "#4b5335";
+        if (hungerWrap) hungerWrap.style.display = "none";
+        if (happyWrap) happyWrap.style.display = "none";
+        if (energyWrap) energyWrap.style.display = "none";
+        if (actionButtons) actionButtons.style.display = "none";
+        if (faceEl) {
+          faceEl.innerText = '( -.- )';
+          faceEl.classList.remove('animate-pet-bounce', 'animate-pulse-fast');
+        }
+        if (statusEl) statusEl.innerText = '[ BICHITO IN STAND-BY ]';
+      }
+    }
+
+    function updatePetDisplay() {
+      if (!isPoweredOn) return;
+      const faceEl = document.getElementById('pet-face');
+      const statusEl = document.getElementById('pet-status');
+
+      const barHunger = document.getElementById('bar-hunger');
+      const barHappy = document.getElementById('bar-happy');
+      const barEnergy = document.getElementById('bar-energy');
+
+      if (barHunger) barHunger.style.width = hunger + '%';
+      if (barHappy) barHappy.style.width = happy + '%';
+      if (barEnergy) barEnergy.style.width = energy + '%';
+
+      const textHunger = document.getElementById('text-hunger');
+      const textHappy = document.getElementById('text-happy');
+      const textEnergy = document.getElementById('text-energy');
+
+      if (textHunger) textHunger.innerText = Math.round(hunger) + '%';
+      if (textHappy) textHappy.innerText = Math.round(happy) + '%';
+      if (textEnergy) textEnergy.innerText = Math.round(energy) + '%';
+
+      if (!isAlive) {
+        if (faceEl) {
+          faceEl.innerText = '(x_x)';
+          faceEl.classList.remove('animate-pet-bounce');
+          faceEl.classList.add('animate-pulse-fast');
+        }
+        if (statusEl) statusEl.innerText = '¡Game Over! Poor Bichito';
+        return;
+      }
+
+      if (faceEl) {
+        faceEl.classList.remove('animate-pulse-fast');
+        faceEl.classList.add('animate-pet-bounce');
+      }
+
+      if (hunger < 30) {
+        if (faceEl) faceEl.innerText = '(>_<)';
+        if (statusEl) statusEl.innerText = 'I`m hungry!';
+      } else if (happy < 30) {
+        if (faceEl) faceEl.innerText = '(-_-)';
+        if (statusEl) statusEl.innerText = 'I`m boreeeeed...';
+      } else if (energy < 30) {
+        if (faceEl) faceEl.innerText = '(-.-) zZ';
+        if (statusEl) statusEl.innerText = 'I`m sleepy zzz';
+      } else if (hunger > 70 && happy > 70 && energy > 70) {
+        if (faceEl) faceEl.innerText = '(^__^)';
+        if (statusEl) statusEl.innerText = 'Yipeeeeeee!';
+      } else {
+        if (faceEl) faceEl.innerText = '(•_•)';
+        if (statusEl) statusEl.innerText = 'Chilling...';
+      }
+    }
+
+    setInterval(() => {
+      if (!isAlive || !isPoweredOn) return;
+
+      hunger = Math.max(0, hunger - 4);
+      happy = Math.max(0, happy - 3);
+      energy = Math.max(0, energy - 2);
+
+      if (hunger === 0 || happy === 0 || energy === 0) {
+        isAlive = false;
+        playActionSound('dead');
+      }
+
+      updatePetDisplay();
+    }, 3000);
+
+    function feedPet() {
+      if (!isAlive || !isPoweredOn) return;
+      hunger = Math.min(100, hunger + 25);
+      playActionSound('feed');
+      triggerFaceBounce();
+      updatePetDisplay();
+    }
+
+    function petPet() {
+      if (!isAlive || !isPoweredOn) return;
+      happy = Math.min(100, happy + 20);
+      playActionSound('pet');
+      triggerFaceBounce();
+      updatePetDisplay();
+    }
+
+    function playPet() {
+      if (!isAlive || !isPoweredOn) return;
+      happy = Math.min(100, happy + 25);
+      energy = Math.max(0, energy - 15);
+      hunger = Math.max(0, hunger - 10);
+      playActionSound('play');
+      triggerFaceBounce();
+      updatePetDisplay();
+    }
+
+    function sleepPet() {
+      if (!isAlive || !isPoweredOn) return;
+      energy = Math.min(100, energy + 35);
+      hunger = Math.max(0, hunger - 8);
+      playActionSound('sleep');
+      triggerFaceBounce();
+      updatePetDisplay();
+    }
+
+    function resetPet() {
+      if (!isPoweredOn) return;
+      hunger = 80;
+      happy = 75;
+      energy = 90;
+      isAlive = true;
+      playActionSound('reset');
+      updatePetDisplay();
+    }
+
+    function triggerFaceBounce() {
+      const faceEl = document.getElementById('pet-face');
+      if (faceEl) {
+        faceEl.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          faceEl.style.transform = 'scale(1)';
+        }, 150);
+      }
+    }
+
+    /* --------------------------------------------------
+       REPRODUCTOR DE YOUTUBE MULTI-ÁLBUM CON ROTACIÓN PRECISA Y AUTOPLAY CONTINUO
+       -------------------------------------------------- */
+    let currentAlbumIndex = 0;
+    let currentTrackIndex = 0;
+    let ytPlayer = null;
+    let currentSongTitle = "";
+    let isCdSpinning = false;
+    let currentAngle = 0;
+    let lastAnimTime = null;
+    let animFrameId = null;
+    const speedDegPerSec = 144;
+
+    function renderAlbumTracks() {
+      const album = MIS_ALBUMES[currentAlbumIndex];
+      const albumTitleEl = document.getElementById('album-title-display');
+      if (albumTitleEl) albumTitleEl.innerText = album.nombre;
+      
+      const trackContainer = document.getElementById('track-list-container');
+      if (!trackContainer) return;
+      trackContainer.innerHTML = '';
+
+      album.tracks.forEach((track, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-track';
+        btn.innerText = `tr ${index + 1}. ${track.titulo}`;
+        btn.onclick = () => {
+          currentTrackIndex = index;
+          playYouTubeSong(track.id, track.titulo);
+        };
+        trackContainer.appendChild(btn);
+      });
+    }
+
+    function prevAlbum() {
+      currentAlbumIndex = (currentAlbumIndex - 1 + MIS_ALBUMES.length) % MIS_ALBUMES.length;
+      currentTrackIndex = 0;
+      renderAlbumTracks();
+    }
+
+    function nextAlbum() {
+      currentAlbumIndex = (currentAlbumIndex + 1) % MIS_ALBUMES.length;
+      currentTrackIndex = 0;
+      renderAlbumTracks();
+    }
+
+    function playNextTrackAutomatically() {
+      const currentAlbum = MIS_ALBUMES[currentAlbumIndex];
+      currentTrackIndex = (currentTrackIndex + 1) % currentAlbum.tracks.length;
+      const nextTrack = currentAlbum.tracks[currentTrackIndex];
+      playYouTubeSong(nextTrack.id, nextTrack.titulo);
+    }
+
+    function updateCdRotation(timestamp) {
+      if (!lastAnimTime) lastAnimTime = timestamp;
+      const delta = (timestamp - lastAnimTime) / 1000;
+      lastAnimTime = timestamp;
+
+      if (isCdSpinning) {
+        currentAngle = (currentAngle + speedDegPerSec * delta) % 360;
+        const cdDisc = document.getElementById('cd-disc');
+        if (cdDisc) {
+          cdDisc.style.transform = `rotate(${currentAngle}deg)`;
+        }
+        animFrameId = requestAnimationFrame(updateCdRotation);
+      }
+    }
+
+    function startCdSpin() {
+      if (!isCdSpinning) {
+        isCdSpinning = true;
+        lastAnimTime = null;
+        animFrameId = requestAnimationFrame(updateCdRotation);
+      }
+    }
+
+    function stopCdSpin() {
+      isCdSpinning = false;
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
+    }
+
+    // Cargar la API de YouTube de forma segura
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    if (firstScriptTag && firstScriptTag.parentNode) {
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('youtube-audio-container', {
+        height: '0',
+        width: '0',
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        startCdSpin();
+      } else if (event.data === YT.PlayerState.ENDED) {
+        playNextTrackAutomatically();
+      } else {
+        stopCdSpin();
+      }
+    }
+
+    function playYouTubeSong(videoId, songTitle) {
+      currentSongTitle = songTitle;
+      const statusEl = document.getElementById('player-status');
+      if (statusEl) statusEl.innerText = `▶ Sonando: ${songTitle}`;
+
+      if (ytPlayer && typeof ytPlayer.loadVideoById === 'function') {
+        ytPlayer.loadVideoById(videoId);
+        startCdSpin();
+      } else {
+        setTimeout(() => playYouTubeSong(videoId, songTitle), 800);
+      }
+    }
+
+    function resumeYouTubeSong() {
+      if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+        ytPlayer.playVideo();
+        startCdSpin();
+        const statusEl = document.getElementById('player-status');
+        if (statusEl) {
+          statusEl.innerText = currentSongTitle ? `▶ Sonando: ${currentSongTitle}` : `▶ Reproduciendo`;
+        }
+      }
+    }
+
+    function stopYouTubeSong() {
+      const statusEl = document.getElementById('player-status');
+      if (statusEl) statusEl.innerText = '⏹ Pausado';
+      stopCdSpin();
+      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+        ytPlayer.pauseVideo();
+      }
+    }
+
+    function setPlayerStyle(color) {
+      const playerBox = document.getElementById('music-player-box');
+      if (!playerBox) return;
+
+      const displayBox = playerBox.querySelector('.player-display');
+      const albumTitleBox = document.getElementById('album-title-display');
+      const footerDiv = document.getElementById('player-footer-div');
+
+      if (color === 'silver') {
+        playerBox.style.background = '#dcdde1';
+        playerBox.style.color = '#2f3640';
+        playerBox.classList.add('theme-light');
+        if (displayBox) { displayBox.style.background = '#b2bec3'; displayBox.style.color = '#2f3640'; displayBox.style.borderColor = 'rgba(47,54,64,0.3)'; }
+        if (albumTitleBox) { albumTitleBox.style.background = 'rgba(0,0,0,0.08)'; albumTitleBox.style.color = '#2f3640'; albumTitleBox.style.borderColor = '#b2bec3'; }
+        if (footerDiv) footerDiv.style.borderColor = 'rgba(47,54,64,0.3)';
+      } else if (color === 'crema') {
+        playerBox.style.background = 'var(--crema-amarillito)';
+        playerBox.style.color = 'var(--vino-profundo)';
+        playerBox.classList.add('theme-light');
+        if (displayBox) { displayBox.style.background = 'var(--crema-base)'; displayBox.style.color = 'var(--vino-profundo)'; displayBox.style.borderColor = 'var(--vino-medio)'; }
+        if (albumTitleBox) { albumTitleBox.style.background = 'rgba(56,8,15,0.08)'; albumTitleBox.style.color = 'var(--vino-profundo)'; albumTitleBox.style.borderColor = 'var(--vino-medio)'; }
+        if (footerDiv) footerDiv.style.borderColor = 'var(--vino-medio)';
+      } else if (color === 'vino') {
+        playerBox.style.background = 'var(--vino-profundo)';
+        playerBox.style.color = 'var(--crema-suave)';
+        playerBox.classList.remove('theme-light');
+        if (displayBox) { displayBox.style.background = 'var(--vino-oscuro)'; displayBox.style.color = 'var(--crema-suave)'; displayBox.style.borderColor = 'rgba(250,240,194,0.2)'; }
+        if (albumTitleBox) { albumTitleBox.style.background = 'rgba(0,0,0,0.25)'; albumTitleBox.style.color = 'var(--crema-amarillito)'; albumTitleBox.style.borderColor = 'var(--vino-suave)'; }
+        if (footerDiv) footerDiv.style.borderColor = 'var(--crema-oscuro)';
+      }
+    }
+
+    // Inicializar Bitácora, Tracks y Drag & Drop al cargar
+    document.addEventListener("DOMContentLoaded", () => {
+      renderBlogPosts();
+      renderAlbumTracks();
+      initDragAndDrop();
+    });
+  </script>
+
+</body>
+</html>
